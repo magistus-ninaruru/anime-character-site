@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Anime Character</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f5f7ff; margin:0; }
+    .container { width: min(700px, 92%); margin: 20px auto; background:white; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,.1); padding:18px; }
+    label { display:block; margin-top:10px; font-weight:600; }
+    input, textarea { width:100%; margin-top:6px; padding:8px; border:1px solid #ccc; border-radius:6px; }
+    button { margin-top:14px; padding:10px 14px; border:none; border-radius:6px; background:#2563eb; color:white; font-weight:600; cursor:pointer; }
+    .error { margin-top:10px; color:#b91c1c; background:#fee2e2; border:1px solid #fecaca; padding:10px; border-radius:6px; }
+    .top { display:flex; justify-content:space-between; align-items:center; }
+    .top a { color:#2563eb; text-decoration:none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top"><h1>Create Anime Character</h1><a href="/">← Back to home</a></div>
+    <% if (error) { %><div class="error"><%= error %></div><% } %>
+    <form action="/create" method="post" enctype="multipart/form-data">
+      <label>Name</label>
+      <input type="text" name="name" required />
+
+      <label>Description</label>
+      <textarea name="description" rows="3" required></textarea>
+
+      <label>Personality</label>
+      <input type="text" name="personality" placeholder="Kind, mischievous, calm..." />
+
+      <label>Other traits (comma-separated)</label>
+      <input type="text" name="traits" placeholder="Mage, fox spirit, shy" />
+
+      <label>Avatar Image</label>
+      <input type="file" name="avatar" accept="image/*" required />
+
+      <button type="submit">Save Character</button>
+    </form>
+  </div>
+</body>
+</html>
