@@ -1,0 +1,49 @@
+================================================================================
+  ANIME CHARACTER WEBSITE - QUICK START GUIDE
+================================================================================
+
+✅ DEPLOYMENT COMPLETE!
+
+🌐 ACCESS YOUR WEBSITE:
+   Public URL: http://8.221.139.18:3000
+   
+   NOTE: If you cannot access the website from your browser, you need to:
+   1. Add port 3000 to your ECS Security Group inbound rules
+   2. See detailed instructions in DEPLOYMENT_SUMMARY.md
+
+📋 CURRENT STATUS:
+   - Server Process: Running (PID: 164076)
+   - Port: 3000
+   - Log File: /var/log/anime-character-site.log
+
+⚙️  CONFIGURATION REQUIRED:
+   Edit /root/anime-character-site/.env and set your Alibaba Cloud OSS credentials:
+   - OSS_ACCESS_KEY_ID
+   - OSS_ACCESS_KEY_SECRET  
+   - OSS_BUCKET
+   - OSS_ENDPOINT
+
+🔧 COMMON COMMANDS:
+
+   View server logs:
+   $ tail -f /var/log/anime-character-site.log
+
+   Check if server is running:
+   $ ps aux | grep "node server.js"
+
+   Restart server:
+   $ pkill -f "node server.js"
+   $ cd /root/anime-character-site && nohup node server.js > /var/log/anime-character-site.log 2>&1 &
+
+   Stop server:
+   $ pkill -f "node server.js"
+
+📁 IMPORTANT FILES:
+   - Application: /root/anime-character-site/
+   - Database: /root/anime-character-site/data.db
+   - Environment Config: /root/anime-character-site/.env
+   - Deployment Guide: /root/anime-character-site/DEPLOYMENT_SUMMARY.md
+
+================================================================================
+  For detailed deployment information, see DEPLOYMENT_SUMMARY.md
+================================================================================
